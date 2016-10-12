@@ -12,11 +12,16 @@ if __name__ == '__main__':
         line = line.strip()
         try:
             logdata = json.loads(line)
-            log_file.write((logdata['test']) + '\t')
             x = time.localtime(int(logdata['time'] / 1000))
             dataArry = time.strftime("%Y-%m-%d %H:%M:%S", x)
-            log_file.write(dataArry + '\t')
-            log_file.write('\n')
+            newdata = {
+                'test': logdata['test'],
+                'time': dataArry,
+            }
+            
+            jsonData = json.dumps(newdata, ensure_ascii=False)
+            # Write to file.ll
+            log_file.write(jsonData)
         except BaseException as e:
             print('Error: ', e)
             break
