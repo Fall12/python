@@ -20,7 +20,7 @@ if __name__ == '__main__':
             }
             
             jsonData = json.dumps(newdata, ensure_ascii=False)
-            # Write to file.ll
+            # Write to file.
             log_file.write(jsonData)
         except BaseException as e:
             print('Error: ', e)
